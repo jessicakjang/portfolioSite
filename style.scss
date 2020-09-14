@@ -19,6 +19,7 @@ h1, h2, h3, p, ul, a { color: $text-color; }
 // hello + who i am
 header {
     height: 100%;
+
     width: 80%;
     background: $bg-2;
     box-shadow: 8px 8px 15px $bg-3;
@@ -28,6 +29,7 @@ header {
     top: 20px;
     left: 45px;
     }
+
     
     @mixin greeting() {
     position: relative;
