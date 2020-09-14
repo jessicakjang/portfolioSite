@@ -1,0 +1,110 @@
+html, body {
+  background: #F8F7FD; }
+
+h1, h2, h3, p, ul, a {
+  color: #033500; }
+
+.landing {
+  display: flex;
+  height: 100%;
+  width: 100%; }
+  .landing header {
+    height: 100%;
+    width: 75%;
+    background: #B0D39C;
+    box-shadow: 8px 8px 15px #6DA559; }
+    .landing header .greeting {
+      position: relative;
+      top: 20px;
+      left: 45px; }
+    .landing header .hello {
+      position: relative;
+      padding: 10px;
+      margin: 0;
+      text-align: center;
+      position: relative;
+      top: 75px;
+      width: 30%;
+      font-family: 'Sacramento', cursive;
+      font-size: 7rem;
+      font-weight: 700;
+      font-style: italic;
+      filter: drop-shadow(8px 8px 2px rgba(255, 153, 197, 0.75));
+      transform: rotate(-10deg); }
+    .landing header h1 {
+      position: relative;
+      padding: 10px;
+      margin: 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      top: 20px;
+      left: 20px;
+      width: 60%;
+      font-family: 'Josefin Slab', serif;
+      font-size: 4.75rem; }
+      .landing header h1::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 55px;
+        left: 140px;
+        width: 55%;
+        height: 30px;
+        background: #FF99C5; }
+    .landing header h2 {
+      position: relative;
+      top: 50px;
+      left: 40px;
+      width: 60%;
+      font-family: 'Josefin Slab', serif;
+      font-size: 22px;
+      text-align: center; }
+  .landing nav {
+    position: sticky;
+    top: 0;
+    right: 0;
+    align-self: flex-start;
+    height: auto;
+    width: 25%;
+    text-align: right; }
+    .landing nav ul {
+      padding: 10px 25px;
+      font-family: 'Josefin Slab', serif;
+      font-size: 30px;
+      font-weight: 500; }
+      .landing nav ul a {
+        position: relative;
+        text-decoration: none; }
+    .landing nav .hvr-underline {
+      position: relaitve;
+      display: inline-block;
+      vertical-align: middle;
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px #F8F7FD;
+      transition-property: color;
+      transition-duration: 0.3s; }
+      .landing nav .hvr-underline::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 15px;
+        right: -5px;
+        width: 80%;
+        height: 50%;
+        background: rgba(255, 153, 197, 0.75); }
+      .landing nav .hvr-underline:hover {
+        font-style: italic; }
+        .landing nav .hvr-underline:hover::before {
+          background: #FF99C5;
+          transform: scale(1.1); }
+
+#work {
+  height: 100%;
+  width: 100%; }
+
+#about {
+  height: 100%;
+  width: 100%; }
+
+/*# sourceMappingURL=style.css.map */
