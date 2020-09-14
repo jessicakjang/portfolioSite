@@ -15,134 +15,125 @@ h1, h2, h3, p, ul, a { color: $text-color; }
 
 
 // landing page
-.landing {
-    display: flex;
+// hello + who i am
+header {
     height: 100%;
-    width: 100%;
-    // border: 3px solid $lighter-highlight;
+    width: 80%;
+    background: $bg-2;
+    box-shadow: 20px 0 0 $bg-3;
+
+    .greeting {
+        position: relative;
+        top: 20px;
+        left: 65px;
+    }
     
-    // hello + who i am
-    header {
-        height: 100%;
-        width: 75%;
-        background: $bg-2;
-        box-shadow: 8px 8px 15px $bg-3;
+    @mixin greeting() {
+        position: relative;
+        padding: 10px;
+        margin: 0;
+        text-align: center;
+    }
 
-        .greeting {
-            position: relative;
-            top: 20px;
-            left: 45px;
-        }
+    .hello {
+        @include greeting();
+        position: relative;
+        top: 75px;
+        width: 30%; 
+        font-family: 'Sacramento', cursive; 
+        font-size: 8rem;
+        font-weight: 700;
+        font-style: italic;
+        filter: drop-shadow(8px 8px 2px $lighter-highlight);
+        transform: rotate(-15deg);
+    }
 
-        @mixin greeting() {
-            position: relative;
-            padding: 10px;
-            margin: 0;
-            text-align: center;
-        }
+    h1 {
+        @include greeting();
+        position: relative;
+        z-index: 1;
+        left: 20px;
+        width: 60%;
+        font-family: 'Josefin Slab', serif;
+        font-size: 4.75rem;
 
-        .hello {
-            @include greeting();
-            position: relative;
-            top: 75px;
-            width: 30%; 
-            font-family: 'Sacramento', cursive; 
-            font-size: 7rem;
-            font-weight: 700;
-            font-style: italic;
-            filter: drop-shadow(8px 8px 2px $lighter-highlight);
-            transform: rotate(-10deg);
-        }
-
-        h1 {
-            @include greeting();
-            position: relative;
-            z-index: 1;
-            top: 20px;
-            left: 20px;
-            width: 60%;
-            font-family: 'Josefin Slab', serif;
-            font-size: 4.75rem;
-
-            &::before {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                top: 55px;
-                left: 140px;
-                width: 55%;
-                height: 30px;
-                background: $highlight-color;
-            }
-        }
-
-        h2 {
-            // border: black solid;
-            position: relative;
-            top: 50px;
-            left: 40px; 
-            width: 60%;
-            // padding: 10px;
-            font-family: 'Josefin Slab', serif;
-            font-size: 22px;   
-            text-align: center;      
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 55px;
+            left: 180px;
+            width: 50%;
+            height: 30px;
+            background: $highlight-color;
         }
     }
 
-    // main nav bar
-    nav {
-        position: sticky;
-        top: 0;
-        right: 0;
-        align-self: flex-start;
-        height: auto;
-        width: 25%;
-        text-align: right;
+    h2 {
+        // border: black solid;
+        position: relative;
+        top: 100px;
+        font-family: 'Josefin Slab', serif;
+        font-size: 28px;   
+        text-align: center;      
+    }  
+}
 
-        ul {
-            padding: 10px 25px;
-            font-family: 'Josefin Slab', serif;
-            font-size: 30px;
-            font-weight: 500;
+// main nav bar
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: auto;
+    // width: 20%;
+    text-align: right;
 
-            a {
-                position: relative;
-                text-decoration: none;
-            }
+    ul {
+        padding: 10px 25px;
+        font-family: 'Josefin Slab', serif;
+        font-size: 30px;
+        font-weight: 500;
+
+        a {
+            position: relative;
+            text-decoration: none;
+
+            img:hover { transform: scale(1.1); }
+        }
+    }
+
+    //main nav bar hover effect
+    .hvr-underline {
+        position: relaitve;
+        display: inline-block;
+        vertical-align: middle;
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px $bg-1;
+        transition-property: color;
+        transition-duration: 0.3s;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 15px;
+            right: -5px;
+            width: 80%;
+            height: 50%;
+            background: $lighter-highlight;
         }
 
-        //main nav bar hover effect
-        .hvr-underline {
-            position: relaitve;
-            display: inline-block;
-            vertical-align: middle;
-            transform: perspective(1px) translateZ(0);
-            box-shadow: 0 0 1px $bg-1;
-            transition-property: color;
-            transition-duration: 0.3s;
+        &:hover {
+            font-style: italic;
 
             &::before {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                top: 15px;
-                right: -5px;
-                width: 80%;
-                height: 50%;
-                background: $lighter-highlight;
-            }
-
-            &:hover {
-                font-style: italic;
-
-                &::before {
-                    background: $highlight-color;
-                    transform: scale(1.1);
-                }
+                background: $highlight-color;
+                transform: scale(1.1);
             }
         }
     }
 }
+
 
 // work section
 #work {
