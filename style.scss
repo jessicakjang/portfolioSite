@@ -11,21 +11,23 @@ $lighter-highlight: rgba(255, 153, 197, .75);
 // global styles
 html, body { background: $bg-1; }
 
-h1, h2, h3, p, ul, a { color: $text-color; }
+h1, h2, h3, h4, p, ul, a { 
+    color: $text-color; 
+    font-family: "Josefin Slab", sans-serif;
+}
 
 
 // landing page
 // hello + who i am
 header {
-    height: 110%;
+    height: 115%;
     width: 85%;
-    // background: $bg-2;
-    // box-shadow: 20px 0 0 $bg-2;
 
     .greeting {
+        // border: black solid;
         position: relative;
-        top: 20px;
-        left: 65px;
+        top: 5%;
+        left: 5%;
     }
     
     @mixin greeting() {
@@ -54,7 +56,6 @@ header {
         z-index: 1;
         left: 20px;
         width: 60%;
-        font-family: 'Josefin Slab', serif;
         font-size: 4.75rem;
 
         &::before {
@@ -62,9 +63,9 @@ header {
             position: absolute;
             z-index: -1;
             top: 55px;
-            left: 195px;
+            left: 200px;
             width: 50%;
-            height: 30px;
+            height: 35%;
             background: $highlight-color;
         }
     }
@@ -73,7 +74,6 @@ header {
         position: relative;
         z-index: 1;
         top: 100px;
-        font-family: 'Josefin Slab', serif;
         font-size: 28px;   
         text-align: center; 
         
@@ -97,13 +97,12 @@ nav {
     top: 0;
     right: 0;
     height: 100%;
-    // width: 20%;
+    width: 15%;
     text-align: right;
-    box-shadow: -5px 0 0 $bg-2;
+    box-shadow: -3px 0 0 $bg-3;
 
     ul {
         padding: 10px 25px;
-        font-family: 'Josefin Slab', serif;
         font-size: 30px;
         font-weight: 500;
 
@@ -157,25 +156,97 @@ nav {
 h3 {
     display: block;
     margin: auto;
-    width: 350px;
+    width: 80%;
     padding: 10px 0 10px 0;
-    font-family: "Josefin Slab", sans-serif;
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 700;
     text-align: center;
-    border-top: 3px solid $bg-3;
-    border-bottom: 3px solid $bg-3;
+    border-top: 2px solid $bg-3;
+    border-bottom: 2px solid $bg-3;
 }
 
 section {
     height: 100%;
     width: 85%;
-    padding-top: 45px;
-    margin-left: 10px;
+    padding: 65px 0;
 }
 
 #work {
-  
+    // border: black solid;
+    height: auto;
+    margin-bottom: 50px;
+
+    .project {
+        display: flex;
+        // height: 500px;
+        width: 95%;
+        margin: 100px auto;
+
+        &:hover {
+            transform: scale(1.01);
+        }
+
+        .project-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            width: 60%;
+
+            .desktop {
+                height: 256.5px;
+                width: 450px;
+                outline: black solid;
+            }
+
+            .mobile {
+                height: 245px;
+                width: 138px;
+                outline: black solid;
+            }
+        }
+
+        .project-description {
+            width: 40%;
+            padding: 50px 20px;
+
+            h4 {
+                text-align: center;
+                font-size: 25px;
+                font-style: italic;
+            }
+
+            p {
+                width: 85%;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 18px;
+            }
+        }
+    }
+
+    @mixin project-box-border($color) {
+        border-top: transparent;
+        border-right: 30px solid $color;
+        border-bottom: transparent;
+        border-left: transparent;
+        box-shadow: 0 0 5px $color;
+
+        &:hover { box-shadow: 3px 3px 10px $color; }
+    }
+    .project-1 {
+        @include project-box-border($bg-2);
+    }
+
+    .project-2 {
+        @include project-box-border($lighter-highlight);
+        // flex-direction: row-reverse;
+    }
+
+    .project-3 {
+        @include project-box-border($bg-2);
+    }
+
 }
 
 // about section 

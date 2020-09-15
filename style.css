@@ -1,16 +1,17 @@
 html, body {
   background: #F8F7FD; }
 
-h1, h2, h3, p, ul, a {
-  color: #033500; }
+h1, h2, h3, h4, p, ul, a {
+  color: #033500;
+  font-family: "Josefin Slab", sans-serif; }
 
 header {
-  height: 110%;
+  height: 115%;
   width: 85%; }
   header .greeting {
     position: relative;
-    top: 20px;
-    left: 65px; }
+    top: 5%;
+    left: 5%; }
   header .hello {
     position: relative;
     padding: 10px;
@@ -34,22 +35,20 @@ header {
     z-index: 1;
     left: 20px;
     width: 60%;
-    font-family: 'Josefin Slab', serif;
     font-size: 4.75rem; }
     header h1::before {
       content: "";
       position: absolute;
       z-index: -1;
       top: 55px;
-      left: 195px;
+      left: 200px;
       width: 50%;
-      height: 30px;
+      height: 35%;
       background: #FF99C5; }
   header h2 {
     position: relative;
     z-index: 1;
     top: 100px;
-    font-family: 'Josefin Slab', serif;
     font-size: 28px;
     text-align: center; }
     header h2::before {
@@ -67,11 +66,11 @@ nav {
   top: 0;
   right: 0;
   height: 100%;
+  width: 15%;
   text-align: right;
-  box-shadow: -5px 0 0 #B0D39C; }
+  box-shadow: -3px 0 0 #6DA559; }
   nav ul {
     padding: 10px 25px;
-    font-family: 'Josefin Slab', serif;
     font-size: 30px;
     font-weight: 500; }
     nav ul a {
@@ -105,20 +104,78 @@ nav {
 h3 {
   display: block;
   margin: auto;
-  width: 350px;
+  width: 80%;
   padding: 10px 0 10px 0;
-  font-family: "Josefin Slab", sans-serif;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 700;
   text-align: center;
-  border-top: 3px solid #6DA559;
-  border-bottom: 3px solid #6DA559; }
+  border-top: 2px solid #6DA559;
+  border-bottom: 2px solid #6DA559; }
 
 section {
   height: 100%;
   width: 85%;
-  padding-top: 45px;
-  margin-left: 10px; }
+  padding: 65px 0; }
+
+#work {
+  height: auto;
+  margin-bottom: 50px; }
+  #work .project {
+    display: flex;
+    width: 95%;
+    margin: 100px auto; }
+    #work .project:hover {
+      transform: scale(1.01); }
+    #work .project .project-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      width: 60%; }
+      #work .project .project-images .desktop {
+        height: 256.5px;
+        width: 450px;
+        outline: black solid; }
+      #work .project .project-images .mobile {
+        height: 245px;
+        width: 138px;
+        outline: black solid; }
+    #work .project .project-description {
+      width: 40%;
+      padding: 50px 20px; }
+      #work .project .project-description h4 {
+        text-align: center;
+        font-size: 25px;
+        font-style: italic; }
+      #work .project .project-description p {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px; }
+  #work .project-1 {
+    border-top: transparent;
+    border-right: 30px solid #B0D39C;
+    border-bottom: transparent;
+    border-left: transparent;
+    box-shadow: 0 0 5px #B0D39C; }
+    #work .project-1:hover {
+      box-shadow: 3px 3px 10px #B0D39C; }
+  #work .project-2 {
+    border-top: transparent;
+    border-right: 30px solid rgba(255, 153, 197, 0.75);
+    border-bottom: transparent;
+    border-left: transparent;
+    box-shadow: 0 0 5px rgba(255, 153, 197, 0.75); }
+    #work .project-2:hover {
+      box-shadow: 3px 3px 10px rgba(255, 153, 197, 0.75); }
+  #work .project-3 {
+    border-top: transparent;
+    border-right: 30px solid #B0D39C;
+    border-bottom: transparent;
+    border-left: transparent;
+    box-shadow: 0 0 5px #B0D39C; }
+    #work .project-3:hover {
+      box-shadow: 3px 3px 10px #B0D39C; }
 
 #about img {
   border-radius: 50%; }
