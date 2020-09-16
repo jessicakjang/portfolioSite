@@ -9,7 +9,20 @@ $lighter-highlight: rgba(255, 153, 197, .75);
 // desktop version
 
 // global styles
-html, body { background: $bg-1; }
+html { background: $bg-1; }
+
+body { 
+    display: grid; 
+    grid-template-rows: 100vh auto auto;
+    grid-template-columns: 85% auto;
+    grid-template-areas: 
+        "head sidebar"
+        "main sidebar" 
+        "foot foot";
+    overflow-x: hidden;
+    margin: -5px;
+    padding: 5px;
+}
 
 h1, h2, h3, h4, p, ul, a { 
     color: $text-color; 
@@ -18,20 +31,17 @@ h1, h2, h3, h4, p, ul, a {
 
 p { line-height: 1.25; }
 
+@mixin hover-transition() {
+    transition: all 0.2s linear;
+}
+
 
 // landing page
 // hello + who i am
 header {
-    height: 115%;
-    width: 85%;
+    grid-area: head;
+    height: 100%;
 
-    .greeting {
-        // border: black solid;
-        position: relative;
-        top: 5%;
-        left: 5%;
-    }
-    
     @mixin greeting() {
         position: relative;
         padding: 10px;
@@ -39,39 +49,45 @@ header {
         text-align: center;
     }
 
-    .hello {
-        @include greeting();
+    .greeting {
         position: relative;
-        top: 75px;
-        width: 30%; 
-        font-family: 'Sacramento', cursive; 
-        font-size: 8rem;
-        font-weight: 700;
-        font-style: italic;
-        filter: drop-shadow(8px 8px 2px $lighter-highlight);
-        transform: rotate(-15deg);
-    }
+        top: 5%;
+        left: 5%;
 
-    h1 {
-        @include greeting();
-        position: relative;
-        z-index: 1;
-        left: 20px;
-        width: 60%;
-        font-size: 4.75rem;
+        .hello {
+            @include greeting();
+            position: relative;
+            top: 75px;
+            width: 30%; 
+            font-family: 'Sacramento', cursive; 
+            font-size: 8rem;
+            font-weight: 700;
+            font-style: italic;
+            filter: drop-shadow(8px 8px 2px $lighter-highlight);
+            transform: rotate(-15deg);
+        }
 
-        &::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            top: 55px;
-            left: 200px;
-            width: 50%;
-            height: 35%;
-            background: $highlight-color;
+        h1 {
+            @include greeting();
+            position: relative;
+            z-index: 1;
+            left: 20px;
+            width: 60%;
+            font-size: 4.75rem;
+    
+            &::before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                top: 55px;
+                left: 200px;
+                width: 50%;
+                height: 35%;
+                background: $highlight-color;
+            }
         }
     }
-
+    
     h2 {
         position: relative;
         z-index: 1;
@@ -95,33 +111,38 @@ header {
 
 // main nav bar
 nav {
+    grid-area: sidebar;
     position: fixed;
     top: 0;
     right: 0;
     height: 100%;
-    width: 15%;
     text-align: right;
     box-shadow: -3px 0 0 $bg-3;
 
-    ul {
-        padding: 10px 25px;
-        font-size: 30px;
-        font-weight: 500;
+    .stick-to-top {
+        // position: sticky;
+        // bottom: 0;
 
-        a {
-            position: relative;
-            text-decoration: none;
-
-            img {
-
-                &:hover { 
-                    transform: scale(1.1);
+        ul {
+            padding: 10px 25px;
+            font-size: 30px;
+            font-weight: 500;
+    
+            a {
+                position: relative;
+                text-decoration: none;
+    
+                img {
+    
+                    &:hover { 
+                        @include hover-transition();
+                        transform: scale(1.05);
+                    }
                 }
             }
         }
-    }
 
-    //main nav bar hover effect
+        // main nav bar hover effect
     .hvr-underline {
         position: relaitve;
         display: inline-block;
@@ -143,6 +164,7 @@ nav {
         }
 
         &:hover {
+            @include hover-transition();
             font-style: italic;
 
             &::before {
@@ -151,165 +173,202 @@ nav {
             }
         }
     }
+    }
 }
 
 
 // sections - global styles
-h3 {
-    display: block;
-    margin: auto;
-    width: 80%;
-    padding: 10px 0 10px 0;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 5px;
-    text-align: center;
-    border-top: 2px solid $bg-3;
-    border-bottom: 2px solid $bg-3;
-}
+main { 
+    grid-area: main; 
 
-section {
-    width: 85%;
-    padding: 65px 0;
-}
+    section {
+        padding: 65px 0;
 
-// work section
-#work {
-    // border: black solid;
-    height: auto;
-    margin-bottom: 50px;
-
-    .project {
-        display: flex;
-        // height: 500px;
-        width: 95%;
-        margin: 100px auto;
-
-        &:hover {
-            transform: scale(1.01);
-        }
-
-        .project-images {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: center;
-            width: 60%;
-
-            .desktop {
-                height: 256.5px;
-                width: 450px;
-                outline: black solid;
-            }
-
-            .mobile {
-                height: 245px;
-                width: 138px;
-                outline: black solid;
-            }
-        }
-
-        .project-description {
-            width: 40%;
-            padding: 50px 20px;
-
-            h4 {
-                text-align: center;
-                font-size: 25px;
-                font-style: italic;
-            }
-
-            p {
-                width: 85%;
-                margin-left: auto;
-                margin-right: auto;
-                font-size: 18px;
-            }
-        }
-    }
-
-    @mixin project-box-border($color) {
-        border-top: transparent;
-        border-right: 30px solid $color;
-        border-bottom: transparent;
-        border-left: transparent;
-        box-shadow: 0 0 5px $color;
-
-        &:hover { box-shadow: 3px 3px 10px $color; }
-    }
-    .project-1 {
-        @include project-box-border($bg-2);
-    }
-
-    .project-2 {
-        @include project-box-border($lighter-highlight);
-        // flex-direction: row-reverse;
-    }
-
-    .project-3 {
-        @include project-box-border($bg-2);
-    }
-
-}
-
-// about section
-#about {
-    img {
-        border-radius: 50%;
-    }
-}
-
-// contact section
-#contact {
-    .invitation {
-        width: 70%;
-        margin: auto;
-        margin-top: 5%;
-        padding: 10px 0;
-        font-size: 20px;
-        text-align: center;
-
-        .email {
-            padding: 10px;
-            font-style: normal;
+        h3 {
+            display: block;
+            margin: auto;
+            width: 80%;
+            padding: 10px 0 10px 0;
+            font-size: 32px;
             font-weight: 700;
-            text-decoration: none;
+            letter-spacing: 5px;
+            text-align: center;
+            border-top: 2px solid $bg-3;
+            border-bottom: 2px solid $bg-3;
+        }  
+    }
+    
+     // work section
+     #work {
+        // border: black solid;
+        height: auto;
+        margin-bottom: 50px;
+
+        .project {
+            display: flex;
+            // height: 500px;
+            width: 95%;
+            margin: 100px auto;
 
             &:hover {
-                font-style: italic;
-                text-decoration: underline;
+                @include hover-transition();
+                transform: scale(1.01);
             }
+
+            .project-images {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                width: 60%;
+
+                .desktop {
+                    height: 256.5px;
+                    width: 450px;
+                    outline: black solid;
+                }
+
+                .mobile {
+                    height: 245px;
+                    width: 138px;
+                    outline: black solid;
+                }
+            }
+
+            .project-description {
+                width: 40%;
+                padding: 50px 20px;
+
+                h4 {
+                    text-align: center;
+                    font-size: 25px;
+                    font-style: italic;
+                }
+
+                p {
+                    width: 85%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        @mixin project-box-border($color) {
+            border-top: transparent;
+            border-right: 30px solid $color;
+            border-bottom: transparent;
+            border-left: transparent;
+            box-shadow: 0 0 5px $color;
+
+            &:hover { box-shadow: 3px 3px 10px $color; }
+        }
+        .project-1 {
+            @include project-box-border($bg-2);
+        }
+
+        .project-2 {
+            @include project-box-border($lighter-highlight);
+            // flex-direction: row-reverse;
+        }
+
+        .project-3 {
+            @include project-box-border($bg-2);
         }
     }
 
-    .available {
-        // border: black solid;
-        width: 70%;
-        margin: auto;
-        margin-top: 5%;
-        font-size: 22px;
-        text-align: center;
+    // about section
+    #about {
+        img {
+            border-radius: 50%;
+        }
     }
 
-    .social-links {
-        // border: black solid;
-        display: flex;
-        justify-content: space-evenly;
-        width: 70%;
-        margin: auto;
-        padding: 100px 0;
+    // contact section
+    #contact {
+        .invitation {
+            width: 70%;
+            margin: auto;
+            margin-top: 100px;
+            padding: 10px 0;
+            font-size: 20px;
+            text-align: center;
 
-        .social-icon {
-            width: 50px;
+            .email {
+                padding: 10px;
+                font-style: normal;
+                font-weight: 700;
+                text-decoration: none;
+
+                &:hover {
+                    font-style: italic;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .available {
+            width: 70%;
+            margin: auto;
+            margin-top: 5%;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: space-evenly;
+            width: 70%;
+            margin: auto;
+            padding: 100px 0;
+
+            .social-icon { width: 50px; }
+        }
+    }
+
+    // css images section
+    #cssImages {
+        margin-bottom: 200px;
+
+        p {
+            font-size: 18px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .codepen {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding-top: 60px;
+
+            .polaroid {
+                border: solid $bg-3;
+                padding: 15px 15px 75px 15px;
+                box-shadow: 1px 1px 5px $text-color;
+
+                &:hover {
+                    @include hover-transition();
+                    transform: scale(1.05);
+                    box-shadow: 3px 3px 5px $text-color;
+                }
+            }
+
+            img { border: solid $bg-3;}
         }
     }
 }
 
-// css images section
-#cssImages {
-    .codepen {
-        display: flex;
-        justify-content: space-evenly;
-        padding-top: 80px;
-    }
+// footer
+footer {
+    grid-area: foot;
+    position: relative;       
+    width: 100%;
+    margin: 150px 0 0 0;
+    padding: 5px 0;
+    text-align: center;
+    background: $lighter-highlight;
+    box-shadow: 5px 0 0 $lighter-highlight;
+
+    p { line-height: 0.25 !important;}
 }
