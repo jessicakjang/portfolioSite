@@ -5,6 +5,9 @@ h1, h2, h3, h4, p, ul, a {
   color: #033500;
   font-family: "Josefin Slab", sans-serif; }
 
+p {
+  line-height: 1.25; }
+
 header {
   height: 115%;
   width: 85%; }
@@ -108,12 +111,12 @@ h3 {
   padding: 10px 0 10px 0;
   font-size: 32px;
   font-weight: 700;
+  letter-spacing: 5px;
   text-align: center;
   border-top: 2px solid #6DA559;
   border-bottom: 2px solid #6DA559; }
 
 section {
-  height: 100%;
   width: 85%;
   padding: 65px 0; }
 
@@ -179,5 +182,40 @@ section {
 
 #about img {
   border-radius: 50%; }
+
+#contact .invitation {
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+  padding: 10px 0;
+  font-size: 20px;
+  text-align: center; }
+  #contact .invitation .email {
+    padding: 10px;
+    font-style: normal;
+    font-weight: 700;
+    text-decoration: none; }
+    #contact .invitation .email:hover {
+      font-style: italic;
+      text-decoration: underline; }
+#contact .available {
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+  font-size: 22px;
+  text-align: center; }
+#contact .social-links {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+  margin: auto;
+  padding: 100px 0; }
+  #contact .social-links .social-icon {
+    width: 50px; }
+
+#cssImages .codepen {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 80px; }
 
 /*# sourceMappingURL=style.css.map */

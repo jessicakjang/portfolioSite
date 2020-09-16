@@ -16,6 +16,8 @@ h1, h2, h3, h4, p, ul, a {
     font-family: "Josefin Slab", sans-serif;
 }
 
+p { line-height: 1.25; }
+
 
 // landing page
 // hello + who i am
@@ -152,7 +154,7 @@ nav {
 }
 
 
-// work section
+// sections - global styles
 h3 {
     display: block;
     margin: auto;
@@ -160,17 +162,18 @@ h3 {
     padding: 10px 0 10px 0;
     font-size: 32px;
     font-weight: 700;
+    letter-spacing: 5px;
     text-align: center;
     border-top: 2px solid $bg-3;
     border-bottom: 2px solid $bg-3;
 }
 
 section {
-    height: 100%;
     width: 85%;
     padding: 65px 0;
 }
 
+// work section
 #work {
     // border: black solid;
     height: auto;
@@ -249,10 +252,64 @@ section {
 
 }
 
-// about section 
+// about section
 #about {
     img {
         border-radius: 50%;
     }
 }
 
+// contact section
+#contact {
+    .invitation {
+        width: 70%;
+        margin: auto;
+        margin-top: 5%;
+        padding: 10px 0;
+        font-size: 20px;
+        text-align: center;
+
+        .email {
+            padding: 10px;
+            font-style: normal;
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover {
+                font-style: italic;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .available {
+        // border: black solid;
+        width: 70%;
+        margin: auto;
+        margin-top: 5%;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .social-links {
+        // border: black solid;
+        display: flex;
+        justify-content: space-evenly;
+        width: 70%;
+        margin: auto;
+        padding: 100px 0;
+
+        .social-icon {
+            width: 50px;
+        }
+    }
+}
+
+// css images section
+#cssImages {
+    .codepen {
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 80px;
+    }
+}
