@@ -115,9 +115,8 @@ nav {
     position: fixed;
     top: 0;
     right: 0;
-    height: 100%;
+    height: auto;
     text-align: right;
-    box-shadow: -3px 0 0 $bg-3;
 
     .stick-to-top {
         // position: sticky;
@@ -125,7 +124,7 @@ nav {
 
         ul {
             padding: 10px 25px;
-            font-size: 30px;
+            font-size: 26px;
             font-weight: 500;
     
             a {
@@ -182,7 +181,7 @@ main {
     grid-area: main; 
 
     section {
-        padding: 65px 0;
+        padding: 65px 0 65px 5px;
 
         h3 {
             display: block;
@@ -193,7 +192,7 @@ main {
             font-weight: 700;
             letter-spacing: 5px;
             text-align: center;
-            border-top: 2px solid $bg-3;
+            // border-top: 2px solid $bg-3;
             border-bottom: 2px solid $bg-3;
         }  
     }
@@ -207,7 +206,7 @@ main {
         .project {
             display: flex;
             // height: 500px;
-            width: 95%;
+            width: 90%;
             margin: 100px auto;
 
             &:hover {
@@ -220,7 +219,7 @@ main {
                 flex-wrap: wrap;
                 justify-content: space-around;
                 align-items: center;
-                width: 60%;
+                width: 65%;
 
                 .desktop {
                     height: 256.5px;
@@ -236,7 +235,7 @@ main {
             }
 
             .project-description {
-                width: 40%;
+                width: 35%;
                 padding: 50px 20px;
 
                 h4 {
@@ -279,8 +278,69 @@ main {
 
     // about section
     #about {
-        img {
-            border-radius: 50%;
+
+        @mixin intro-outro($value1, $value2, $font-size) {
+            width: 60%;
+            margin: $value1 auto $value2 auto;
+            text-align: center;
+            font-size: $font-size;
+        }
+        .about-intro {
+            // border: black solid;
+            @include intro-outro(100px, 45px, 20px);   
+            font-style: italic;
+            // font-weight: 600;         
+        }
+
+        .about-flex {
+            // border: black solid;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 90%;
+            margin: 50px auto;
+
+            h4 {
+                font-size: 16px;
+                font-style: italic;
+                text-align: center;
+                line-height: 0.5;
+            }
+
+            p { line-height: 2;}
+
+            .bold { 
+                position: relative;
+                z-index: 1;
+                font-weight: 800; 
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    left: 5px;
+                    bottom: 0;
+                    height: 8px;
+                    width: 100%;
+                    background: $lighter-highlight;
+                }
+            }
+
+            .me-the-professional {
+                width: 350px;
+                text-align: justify;
+            }
+
+            img { border-radius: 50%; }
+
+            .me-the-person {
+                width: 350px;
+                text-align: justify;
+            }
+        }
+
+        .about-thanks {
+            @include intro-outro(75px, 100px, 18px);
         }
     }
 
@@ -363,12 +423,11 @@ main {
 footer {
     grid-area: foot;
     position: relative;       
-    width: 100%;
+    width: 100vw;
     margin: 150px 0 0 0;
     padding: 5px 0;
     text-align: center;
     background: $lighter-highlight;
-    box-shadow: 5px 0 0 $lighter-highlight;
 
     p { line-height: 0.25 !important;}
 }

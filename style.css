@@ -78,12 +78,11 @@ nav {
   position: fixed;
   top: 0;
   right: 0;
-  height: 100%;
-  text-align: right;
-  box-shadow: -3px 0 0 #6DA559; }
+  height: auto;
+  text-align: right; }
   nav .stick-to-top ul {
     padding: 10px 25px;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 500; }
     nav .stick-to-top ul a {
       position: relative;
@@ -118,7 +117,7 @@ nav {
 main {
   grid-area: main; }
   main section {
-    padding: 65px 0; }
+    padding: 65px 0 65px 5px; }
     main section h3 {
       display: block;
       margin: auto;
@@ -128,14 +127,13 @@ main {
       font-weight: 700;
       letter-spacing: 5px;
       text-align: center;
-      border-top: 2px solid #6DA559;
       border-bottom: 2px solid #6DA559; }
   main #work {
     height: auto;
     margin-bottom: 50px; }
     main #work .project {
       display: flex;
-      width: 95%;
+      width: 90%;
       margin: 100px auto; }
       main #work .project:hover {
         transition: all 0.2s linear;
@@ -145,7 +143,7 @@ main {
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        width: 60%; }
+        width: 65%; }
         main #work .project .project-images .desktop {
           height: 256.5px;
           width: 450px;
@@ -155,7 +153,7 @@ main {
           width: 138px;
           outline: black solid; }
       main #work .project .project-description {
-        width: 40%;
+        width: 35%;
         padding: 50px 20px; }
         main #work .project .project-description h4 {
           text-align: center;
@@ -190,8 +188,51 @@ main {
       box-shadow: 0 0 5px #B0D39C; }
       main #work .project-3:hover {
         box-shadow: 3px 3px 10px #B0D39C; }
-  main #about img {
-    border-radius: 50%; }
+  main #about .about-intro {
+    width: 60%;
+    margin: 100px auto 45px auto;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic; }
+  main #about .about-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 50px auto; }
+    main #about .about-flex h4 {
+      font-size: 16px;
+      font-style: italic;
+      text-align: center;
+      line-height: 0.5; }
+    main #about .about-flex p {
+      line-height: 2; }
+    main #about .about-flex .bold {
+      position: relative;
+      z-index: 1;
+      font-weight: 800; }
+      main #about .about-flex .bold::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 5px;
+        bottom: 0;
+        height: 8px;
+        width: 100%;
+        background: rgba(255, 153, 197, 0.75); }
+    main #about .about-flex .me-the-professional {
+      width: 350px;
+      text-align: justify; }
+    main #about .about-flex img {
+      border-radius: 50%; }
+    main #about .about-flex .me-the-person {
+      width: 350px;
+      text-align: justify; }
+  main #about .about-thanks {
+    width: 60%;
+    margin: 75px auto 100px auto;
+    text-align: center;
+    font-size: 18px; }
   main #contact .invitation {
     width: 70%;
     margin: auto;
@@ -246,12 +287,11 @@ main {
 footer {
   grid-area: foot;
   position: relative;
-  width: 100%;
+  width: 100vw;
   margin: 150px 0 0 0;
   padding: 5px 0;
   text-align: center;
-  background: rgba(255, 153, 197, 0.75);
-  box-shadow: 5px 0 0 rgba(255, 153, 197, 0.75); }
+  background: rgba(255, 153, 197, 0.75); }
   footer p {
     line-height: 0.25 !important; }
 
