@@ -209,10 +209,12 @@ main {
             width: 90%;
             margin: 100px auto;
 
-            &:hover {
-                @include hover-transition();
-                transform: scale(1.01);
-            }
+            // add hover function back in when I have projects and can link to a page in the site where it goes into deeper case study -- hover should only change clickable things
+            // when adding this back in don't foget the box-shadow hover effect below under @mixin project-box-border() :hover
+            // &:hover {
+            //     @include hover-transition();
+            //     transform: scale(1.02);
+            // }
 
             .project-images {
                 display: flex;
@@ -260,7 +262,8 @@ main {
             border-left: transparent;
             box-shadow: 0 0 5px $color;
 
-            &:hover { box-shadow: 3px 3px 10px $color; }
+            // see above note on .project :hover -- only clickable things should have hover effects
+            // &:hover { box-shadow: 3px 3px 10px $color; }
         }
         .project-1 {
             @include project-box-border($bg-2);
@@ -409,8 +412,9 @@ main {
 
                 &:hover {
                     @include hover-transition();
-                    transform: scale(1.05);
-                    box-shadow: 3px 3px 5px $text-color;
+                    // transform: scale(1.05);
+                    transform: translateY(-15px);
+                    box-shadow: 0 5px 10px $text-color;
                 }
             }
 
@@ -427,7 +431,7 @@ footer {
     margin: 150px 0 0 0;
     padding: 5px 0;
     text-align: center;
-    background: $lighter-highlight;
+    background: $bg-2;
 
     p { line-height: 0.25 !important;}
 }

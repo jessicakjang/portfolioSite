@@ -135,9 +135,6 @@ main {
       display: flex;
       width: 90%;
       margin: 100px auto; }
-      main #work .project:hover {
-        transition: all 0.2s linear;
-        transform: scale(1.01); }
       main #work .project .project-images {
         display: flex;
         flex-wrap: wrap;
@@ -170,24 +167,18 @@ main {
       border-bottom: transparent;
       border-left: transparent;
       box-shadow: 0 0 5px #B0D39C; }
-      main #work .project-1:hover {
-        box-shadow: 3px 3px 10px #B0D39C; }
     main #work .project-2 {
       border-top: transparent;
       border-right: 30px solid rgba(255, 153, 197, 0.75);
       border-bottom: transparent;
       border-left: transparent;
       box-shadow: 0 0 5px rgba(255, 153, 197, 0.75); }
-      main #work .project-2:hover {
-        box-shadow: 3px 3px 10px rgba(255, 153, 197, 0.75); }
     main #work .project-3 {
       border-top: transparent;
       border-right: 30px solid #B0D39C;
       border-bottom: transparent;
       border-left: transparent;
       box-shadow: 0 0 5px #B0D39C; }
-      main #work .project-3:hover {
-        box-shadow: 3px 3px 10px #B0D39C; }
   main #about .about-intro {
     width: 60%;
     margin: 100px auto 45px auto;
@@ -279,8 +270,8 @@ main {
         box-shadow: 1px 1px 5px #033500; }
         main #cssImages .codepen .polaroid:hover {
           transition: all 0.2s linear;
-          transform: scale(1.05);
-          box-shadow: 3px 3px 5px #033500; }
+          transform: translateY(-15px);
+          box-shadow: 0 5px 10px #033500; }
       main #cssImages .codepen img {
         border: solid #6DA559; }
 
@@ -291,7 +282,7 @@ footer {
   margin: 150px 0 0 0;
   padding: 5px 0;
   text-align: center;
-  background: rgba(255, 153, 197, 0.75); }
+  background: #B0D39C; }
   footer p {
     line-height: 0.25 !important; }
 
