@@ -1,3 +1,10 @@
+// Potential changes to make 9/18:
+// Work section: increase size of desktop & mobile images and overlap, switch layer on hover but still keep transform: scale on hover
+
+
+
+
+
 // color palette
 $bg-1: #F8F7FD;
 $bg-2: #B0D39C;
@@ -7,7 +14,6 @@ $highlight-color: #FF99C5;
 $lighter-highlight: rgba(255, 153, 197, .75);
 
 // desktop version
-
 // global styles
 html { background: $bg-1; }
 
@@ -35,12 +41,40 @@ p { line-height: 1.25; }
     transition: all 0.2s linear;
 }
 
+@mixin highlight($left, $height, $color) {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: $left;
+        bottom: 0;
+        height: $height;
+        width: 100%;
+        background: $color;
+    }
+    
+}
+
 
 // landing page
 // hello + who i am
 header {
     grid-area: head;
     height: 100%;
+
+    .floating-box {
+        // border-width: 1px;
+        // border-style: solid;
+        // border-image: linear-gradient($bg-1, $bg-3) 1 100%;
+        // border-left: transparent;
+        height: auto; 
+        width: 75%;
+        margin: 10% auto auto 15%;
+        padding: 0;
+        // box-shadow: 15px 15px 40px 5px $bg-3;
+    }
 
     @mixin greeting() {
         position: relative;
@@ -53,17 +87,18 @@ header {
         position: relative;
         top: 5%;
         left: 5%;
+        width: fit-content;
 
         .hello {
             @include greeting();
             position: relative;
             top: 75px;
-            width: 30%; 
+            width: fit-content; 
             font-family: 'Sacramento', cursive; 
             font-size: 8rem;
             font-weight: 700;
             font-style: italic;
-            filter: drop-shadow(8px 8px 2px $lighter-highlight);
+            filter: drop-shadow(8px 15px 2px $lighter-highlight);
             transform: rotate(-15deg);
         }
 
@@ -71,40 +106,22 @@ header {
             @include greeting();
             position: relative;
             z-index: 1;
-            left: 20px;
-            width: 60%;
+            top: 20px;
+            left: 100px;
+            width: fit-content;
             font-size: 4.75rem;
     
-            &::before {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                top: 55px;
-                left: 200px;
-                width: 50%;
-                height: 35%;
-                background: $highlight-color;
-            }
+            .underline { @include highlight(20px, 45%, $highlight-color); }
         }
     }
     
     h2 {
-        position: relative;
         z-index: 1;
-        top: 100px;
+        margin: 100px auto 75px auto;
         font-size: 28px;   
         text-align: center; 
         
-        &::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            top: 15px;
-            left: 300px;
-            width: 575px;
-            height: 20px;
-            background: $bg-2;
-        }
+        .underline { @include highlight(20px, 45%, $bg-2); }
     }  
 
 }
@@ -118,49 +135,28 @@ nav {
     height: auto;
     text-align: right;
 
-    .stick-to-top {
-        // position: sticky;
-        // bottom: 0;
+    ul {
+        padding: 10px 25px;
+        font-size: 26px;
+        font-weight: 500;
 
-        ul {
-            padding: 10px 25px;
-            font-size: 26px;
-            font-weight: 500;
-    
-            a {
-                position: relative;
-                text-decoration: none;
-    
-                img {
-    
-                    &:hover { 
-                        @include hover-transition();
-                        transform: scale(1.05);
-                    }
+        a {
+            position: relative;
+            text-decoration: none;
+
+            img {
+
+                &:hover { 
+                    @include hover-transition();
+                    transform: scale(1.05);
                 }
             }
         }
+    }
 
-        // main nav bar hover effect
+    // main nav bar hover effect
     .hvr-underline {
-        position: relaitve;
-        display: inline-block;
-        vertical-align: middle;
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px $bg-1;
-        transition-property: color;
-        transition-duration: 0.3s;
-
-        &::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            top: 15px;
-            right: -5px;
-            width: 80%;
-            height: 50%;
-            background: $lighter-highlight;
-        }
+        @include highlight(10px, 50%, $lighter-highlight);
 
         &:hover {
             @include hover-transition();
@@ -172,7 +168,7 @@ nav {
             }
         }
     }
-    }
+    
 }
 
 
@@ -186,35 +182,49 @@ main {
         h3 {
             display: block;
             margin: auto;
-            width: 80%;
-            padding: 10px 0 10px 0;
+            width: 45%;
+            padding: 0;
             font-size: 32px;
             font-weight: 700;
             letter-spacing: 5px;
             text-align: center;
-            // border-top: 2px solid $bg-3;
             border-bottom: 2px solid $bg-3;
+            // border-radius: 5px;
+            // border-image: linear-gradient(to right, $text-color, $bg-1) 100;
         }  
+
+        .section-container {
+            margin: 0 30px 25px 30px;
+            padding: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 3px 5px $text-color;
+        }
     }
     
      // work section
      #work {
-        // border: black solid;
-        height: auto;
         margin-bottom: 50px;
 
+        @mixin project-box-border() {
+            border-radius: 5px;
+            box-shadow: -5px 5px 10px $text-color;
+        }
+
         .project {
+            @include project-box-border();
             display: flex;
-            // height: 500px;
-            width: 90%;
+            height: fit-content;
+            width: 95%;
             margin: 100px auto;
 
             // add hover function back in when I have projects and can link to a page in the site where it goes into deeper case study -- hover should only change clickable things
-            // when adding this back in don't foget the box-shadow hover effect below under @mixin project-box-border() :hover
-            // &:hover {
-            //     @include hover-transition();
-            //     transform: scale(1.02);
-            // }
+            // when adding this back in don't foget the box-shadow hover effect above under @mixin project-box-border() :hover
+            &:hover {
+                @include hover-transition();
+                // transform: scale(1.02);
+                transform: translateX(15px) translateY(-10px);
+                box-shadow: -15px 10px 15px $text-color;
+            }
 
             .project-images {
                 display: flex;
@@ -227,12 +237,22 @@ main {
                     height: 256.5px;
                     width: 450px;
                     outline: black solid;
+
+                    &:hover { 
+                        @include hover-transition();
+                        transform: scale(1.05); 
+                    }
                 }
 
                 .mobile {
                     height: 245px;
                     width: 138px;
                     outline: black solid;
+
+                    &:hover { 
+                        @include hover-transition();
+                        transform: scale(1.05); 
+                    }
                 }
             }
 
@@ -244,6 +264,8 @@ main {
                     text-align: center;
                     font-size: 25px;
                     font-style: italic;
+
+                    span { @include highlight(10px, 45%, $lighter-highlight); }
                 }
 
                 p {
@@ -253,29 +275,6 @@ main {
                     font-size: 18px;
                 }
             }
-        }
-
-        @mixin project-box-border($color) {
-            border-top: transparent;
-            border-right: 30px solid $color;
-            border-bottom: transparent;
-            border-left: transparent;
-            box-shadow: 0 0 5px $color;
-
-            // see above note on .project :hover -- only clickable things should have hover effects
-            // &:hover { box-shadow: 3px 3px 10px $color; }
-        }
-        .project-1 {
-            @include project-box-border($bg-2);
-        }
-
-        .project-2 {
-            @include project-box-border($lighter-highlight);
-            // flex-direction: row-reverse;
-        }
-
-        .project-3 {
-            @include project-box-border($bg-2);
         }
     }
 
@@ -290,25 +289,17 @@ main {
         }
         .about-intro {
             // border: black solid;
-            @include intro-outro(100px, 45px, 20px);   
+            @include intro-outro(70px, 35px, 20px);   
             font-style: italic;
-            // font-weight: 600;         
+            font-weight: 600;         
         }
 
         .about-flex {
-            // border: black solid;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            width: 90%;
-            margin: 50px auto;
-
-            h4 {
-                font-size: 16px;
-                font-style: italic;
-                text-align: center;
-                line-height: 0.5;
-            }
+            width: 95%;
+            margin: 0 auto;
 
             p { line-height: 2;}
 
@@ -328,22 +319,21 @@ main {
                     background: $lighter-highlight;
                 }
             }
-
-            .me-the-professional {
+            
+            .me-the-professional, .me-the-person {
                 width: 350px;
                 text-align: justify;
             }
 
-            img { border-radius: 50%; }
-
-            .me-the-person {
-                width: 350px;
-                text-align: justify;
+            img { 
+                border-radius: 50%; 
+                margin: 0 15px;
             }
+    
         }
 
         .about-thanks {
-            @include intro-outro(75px, 100px, 18px);
+            @include intro-outro(50px, 100px, 18px);
         }
     }
 
@@ -414,7 +404,7 @@ main {
                     @include hover-transition();
                     // transform: scale(1.05);
                     transform: translateY(-15px);
-                    box-shadow: 0 5px 10px $text-color;
+                    box-shadow: 0 15px 15px $text-color;
                 }
             }
 

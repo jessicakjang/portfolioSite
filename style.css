@@ -20,10 +20,16 @@ p {
 header {
   grid-area: head;
   height: 100%; }
+  header .floating-box {
+    height: auto;
+    width: 75%;
+    margin: 10% auto auto 15%;
+    padding: 0; }
   header .greeting {
     position: relative;
     top: 5%;
-    left: 5%; }
+    left: 5%;
+    width: fit-content; }
     header .greeting .hello {
       position: relative;
       padding: 10px;
@@ -31,12 +37,12 @@ header {
       text-align: center;
       position: relative;
       top: 75px;
-      width: 30%;
+      width: fit-content;
       font-family: 'Sacramento', cursive;
       font-size: 8rem;
       font-weight: 700;
       font-style: italic;
-      filter: drop-shadow(8px 8px 2px rgba(255, 153, 197, 0.75));
+      filter: drop-shadow(8px 15px 2px rgba(255, 153, 197, 0.75));
       transform: rotate(-15deg); }
     header .greeting h1 {
       position: relative;
@@ -45,33 +51,37 @@ header {
       text-align: center;
       position: relative;
       z-index: 1;
-      left: 20px;
-      width: 60%;
+      top: 20px;
+      left: 100px;
+      width: fit-content;
       font-size: 4.75rem; }
-      header .greeting h1::before {
+      header .greeting h1 .underline {
+        position: relative; }
+        header .greeting h1 .underline::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          left: 20px;
+          bottom: 0;
+          height: 45%;
+          width: 100%;
+          background: #FF99C5; }
+  header h2 {
+    z-index: 1;
+    margin: 100px auto 75px auto;
+    font-size: 28px;
+    text-align: center; }
+    header h2 .underline {
+      position: relative; }
+      header h2 .underline::before {
         content: "";
         position: absolute;
         z-index: -1;
-        top: 55px;
-        left: 200px;
-        width: 50%;
-        height: 35%;
-        background: #FF99C5; }
-  header h2 {
-    position: relative;
-    z-index: 1;
-    top: 100px;
-    font-size: 28px;
-    text-align: center; }
-    header h2::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 15px;
-      left: 300px;
-      width: 575px;
-      height: 20px;
-      background: #B0D39C; }
+        left: 20px;
+        bottom: 0;
+        height: 45%;
+        width: 100%;
+        background: #B0D39C; }
 
 nav {
   grid-area: sidebar;
@@ -80,37 +90,31 @@ nav {
   right: 0;
   height: auto;
   text-align: right; }
-  nav .stick-to-top ul {
+  nav ul {
     padding: 10px 25px;
     font-size: 26px;
     font-weight: 500; }
-    nav .stick-to-top ul a {
+    nav ul a {
       position: relative;
       text-decoration: none; }
-      nav .stick-to-top ul a img:hover {
+      nav ul a img:hover {
         transition: all 0.2s linear;
         transform: scale(1.05); }
-  nav .stick-to-top .hvr-underline {
-    position: relaitve;
-    display: inline-block;
-    vertical-align: middle;
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px #F8F7FD;
-    transition-property: color;
-    transition-duration: 0.3s; }
-    nav .stick-to-top .hvr-underline::before {
+  nav .hvr-underline {
+    position: relative; }
+    nav .hvr-underline::before {
       content: "";
       position: absolute;
       z-index: -1;
-      top: 15px;
-      right: -5px;
-      width: 80%;
+      left: 10px;
+      bottom: 0;
       height: 50%;
+      width: 100%;
       background: rgba(255, 153, 197, 0.75); }
-    nav .stick-to-top .hvr-underline:hover {
+    nav .hvr-underline:hover {
       transition: all 0.2s linear;
       font-style: italic; }
-      nav .stick-to-top .hvr-underline:hover::before {
+      nav .hvr-underline:hover::before {
         background: #FF99C5;
         transform: scale(1.1); }
 
@@ -121,20 +125,31 @@ main {
     main section h3 {
       display: block;
       margin: auto;
-      width: 80%;
-      padding: 10px 0 10px 0;
+      width: 45%;
+      padding: 0;
       font-size: 32px;
       font-weight: 700;
       letter-spacing: 5px;
       text-align: center;
       border-bottom: 2px solid #6DA559; }
+    main section .section-container {
+      margin: 0 30px 25px 30px;
+      padding: 5px 0;
+      border-radius: 5px;
+      box-shadow: 0 3px 5px #033500; }
   main #work {
-    height: auto;
     margin-bottom: 50px; }
     main #work .project {
+      border-radius: 5px;
+      box-shadow: -5px 5px 10px #033500;
       display: flex;
-      width: 90%;
+      height: fit-content;
+      width: 95%;
       margin: 100px auto; }
+      main #work .project:hover {
+        transition: all 0.2s linear;
+        transform: translateX(15px) translateY(-10px);
+        box-shadow: -15px 10px 15px #033500; }
       main #work .project .project-images {
         display: flex;
         flex-wrap: wrap;
@@ -145,10 +160,16 @@ main {
           height: 256.5px;
           width: 450px;
           outline: black solid; }
+          main #work .project .project-images .desktop:hover {
+            transition: all 0.2s linear;
+            transform: scale(1.05); }
         main #work .project .project-images .mobile {
           height: 245px;
           width: 138px;
           outline: black solid; }
+          main #work .project .project-images .mobile:hover {
+            transition: all 0.2s linear;
+            transform: scale(1.05); }
       main #work .project .project-description {
         width: 35%;
         padding: 50px 20px; }
@@ -156,46 +177,35 @@ main {
           text-align: center;
           font-size: 25px;
           font-style: italic; }
+          main #work .project .project-description h4 span {
+            position: relative; }
+            main #work .project .project-description h4 span::before {
+              content: "";
+              position: absolute;
+              z-index: -1;
+              left: 10px;
+              bottom: 0;
+              height: 45%;
+              width: 100%;
+              background: rgba(255, 153, 197, 0.75); }
         main #work .project .project-description p {
           width: 85%;
           margin-left: auto;
           margin-right: auto;
           font-size: 18px; }
-    main #work .project-1 {
-      border-top: transparent;
-      border-right: 30px solid #B0D39C;
-      border-bottom: transparent;
-      border-left: transparent;
-      box-shadow: 0 0 5px #B0D39C; }
-    main #work .project-2 {
-      border-top: transparent;
-      border-right: 30px solid rgba(255, 153, 197, 0.75);
-      border-bottom: transparent;
-      border-left: transparent;
-      box-shadow: 0 0 5px rgba(255, 153, 197, 0.75); }
-    main #work .project-3 {
-      border-top: transparent;
-      border-right: 30px solid #B0D39C;
-      border-bottom: transparent;
-      border-left: transparent;
-      box-shadow: 0 0 5px #B0D39C; }
   main #about .about-intro {
     width: 60%;
-    margin: 100px auto 45px auto;
+    margin: 70px auto 35px auto;
     text-align: center;
     font-size: 20px;
-    font-style: italic; }
+    font-style: italic;
+    font-weight: 600; }
   main #about .about-flex {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 90%;
-    margin: 50px auto; }
-    main #about .about-flex h4 {
-      font-size: 16px;
-      font-style: italic;
-      text-align: center;
-      line-height: 0.5; }
+    width: 95%;
+    margin: 0 auto; }
     main #about .about-flex p {
       line-height: 2; }
     main #about .about-flex .bold {
@@ -211,17 +221,15 @@ main {
         height: 8px;
         width: 100%;
         background: rgba(255, 153, 197, 0.75); }
-    main #about .about-flex .me-the-professional {
+    main #about .about-flex .me-the-professional, main #about .about-flex .me-the-person {
       width: 350px;
       text-align: justify; }
     main #about .about-flex img {
-      border-radius: 50%; }
-    main #about .about-flex .me-the-person {
-      width: 350px;
-      text-align: justify; }
+      border-radius: 50%;
+      margin: 0 15px; }
   main #about .about-thanks {
     width: 60%;
-    margin: 75px auto 100px auto;
+    margin: 50px auto 100px auto;
     text-align: center;
     font-size: 18px; }
   main #contact .invitation {
@@ -271,7 +279,7 @@ main {
         main #cssImages .codepen .polaroid:hover {
           transition: all 0.2s linear;
           transform: translateY(-15px);
-          box-shadow: 0 5px 10px #033500; }
+          box-shadow: 0 15px 15px #033500; }
       main #cssImages .codepen img {
         border: solid #6DA559; }
 
