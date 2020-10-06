@@ -135,10 +135,11 @@ nav {
     height: auto;
     text-align: right;
 
-    ul {
-        padding: 10px 25px;
+    li {
+        padding: 25px;
         font-size: 26px;
         font-weight: 500;
+        list-style: none;
 
         a {
             position: relative;
@@ -245,8 +246,8 @@ main {
                 }
 
                 .mobile {
-                    height: 245px;
-                    width: 138px;
+                    height: 406px;
+                    width: 187.5px;
                     outline: black solid;
 
                     &:hover { 

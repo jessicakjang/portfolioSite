@@ -90,14 +90,15 @@ nav {
   right: 0;
   height: auto;
   text-align: right; }
-  nav ul {
-    padding: 10px 25px;
+  nav li {
+    padding: 25px;
     font-size: 26px;
-    font-weight: 500; }
-    nav ul a {
+    font-weight: 500;
+    list-style: none; }
+    nav li a {
       position: relative;
       text-decoration: none; }
-      nav ul a img:hover {
+      nav li a img:hover {
         transition: all 0.2s linear;
         transform: scale(1.05); }
   nav .hvr-underline {
@@ -164,8 +165,8 @@ main {
             transition: all 0.2s linear;
             transform: scale(1.05); }
         main #work .project .project-images .mobile {
-          height: 245px;
-          width: 138px;
+          height: 406px;
+          width: 187.5px;
           outline: black solid; }
           main #work .project .project-images .mobile:hover {
             transition: all 0.2s linear;
