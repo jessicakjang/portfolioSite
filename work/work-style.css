@@ -1,0 +1,82 @@
+html html {
+  background: #F8F7FD; }
+html body {
+  display: grid;
+  grid-template-rows: 100% auto auto;
+  grid-template-columns: 85% auto;
+  grid-template-areas: "head sidebar" "main sidebar"  "foot foot";
+  overflow-x: hidden;
+  margin: -5px;
+  padding: 5px; }
+html h1, html h2, html h3, html h4, html p, html ul, html a {
+  color: #033500;
+  font-family: "Josefin Slab", sans-serif; }
+html p {
+  line-height: 1.25; }
+
+nav {
+  grid-area: sidebar;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: auto;
+  text-align: right; }
+  nav li {
+    padding: 25px;
+    font-size: 26px;
+    font-weight: 500;
+    list-style: none; }
+    nav li a {
+      position: relative;
+      text-decoration: none; }
+      nav li a img:hover {
+        transition: all 0.2s linear;
+        transform: scale(1.05); }
+  nav .hvr-underline {
+    position: relative; }
+    nav .hvr-underline::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 10px;
+      bottom: 0;
+      height: 50%;
+      width: 100%;
+      background: rgba(255, 153, 197, 0.75); }
+    nav .hvr-underline:hover {
+      transition: all 0.2s linear;
+      font-style: italic; }
+      nav .hvr-underline:hover::before {
+        background: #FF99C5;
+        transform: scale(1.1); }
+
+h1 {
+  grid-area: head;
+  border: black solid; }
+  h1 .underline {
+    position: relative; }
+    h1 .underline::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 20px;
+      bottom: 0;
+      height: 45%;
+      width: 100%;
+      background: #B0D39C; }
+
+.main {
+  grid-area: main; }
+
+footer {
+  grid-area: foot;
+  position: relative;
+  width: 100vw;
+  margin: 150px 0 0 0;
+  padding: 5px 0;
+  text-align: center;
+  background: #B0D39C; }
+  footer p {
+    line-height: 0.25 !important; }
+
+/*# sourceMappingURL=work-style.css.map */

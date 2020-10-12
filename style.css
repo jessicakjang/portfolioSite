@@ -1,7 +1,6 @@
-html {
+html html {
   background: #F8F7FD; }
-
-body {
+html body {
   display: grid;
   grid-template-rows: 100vh auto auto;
   grid-template-columns: 85% auto;
@@ -9,12 +8,10 @@ body {
   overflow-x: hidden;
   margin: -5px;
   padding: 5px; }
-
-h1, h2, h3, h4, p, ul, a {
+html h1, html h2, html h3, html h4, html p, html ul, html a {
   color: #033500;
   font-family: "Josefin Slab", sans-serif; }
-
-p {
+html p {
   line-height: 1.25; }
 
 header {
@@ -135,45 +132,30 @@ main {
       border-bottom: 2px solid #6DA559; }
     main section .section-container {
       margin: 0 30px 25px 30px;
-      padding: 5px 0;
-      border-radius: 5px;
-      box-shadow: 0 3px 5px #033500; }
+      padding: 5px 0; }
   main #work {
     margin-bottom: 50px; }
     main #work .project {
-      border-radius: 5px;
-      box-shadow: -5px 5px 10px #033500;
       display: flex;
       height: fit-content;
       width: 95%;
-      margin: 100px auto; }
-      main #work .project:hover {
-        transition: all 0.2s linear;
-        transform: translateX(15px) translateY(-10px);
-        box-shadow: -15px 10px 15px #033500; }
+      margin: 5% auto;
+      padding: 2.5% 0;
+      border-bottom: 1px solid #033500; }
       main #work .project .project-images {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        width: 65%; }
+        width: 65%;
+        margin: 2.5% 0; }
         main #work .project .project-images .desktop {
-          height: 256.5px;
-          width: 450px;
-          outline: black solid; }
+          width: 90%; }
           main #work .project .project-images .desktop:hover {
-            transition: all 0.2s linear;
-            transform: scale(1.05); }
-        main #work .project .project-images .mobile {
-          height: 406px;
-          width: 187.5px;
-          outline: black solid; }
-          main #work .project .project-images .mobile:hover {
-            transition: all 0.2s linear;
-            transform: scale(1.05); }
+            transition: all 0.2s linear; }
       main #work .project .project-description {
         width: 35%;
-        padding: 50px 20px; }
+        padding: 5% 0; }
         main #work .project .project-description h4 {
           text-align: center;
           font-size: 25px;
@@ -194,6 +176,13 @@ main {
           margin-left: auto;
           margin-right: auto;
           font-size: 18px; }
+        main #work .project .project-description .more {
+          font-style: italic;
+          text-align: center; }
+          main #work .project .project-description .more a {
+            text-decoration: none; }
+            main #work .project .project-description .more a:hover {
+              text-decoration: underline; }
   main #about .about-intro {
     width: 60%;
     margin: 70px auto 35px auto;

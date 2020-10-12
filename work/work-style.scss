@@ -1,0 +1,129 @@
+// color palette
+$bg-1: #F8F7FD;
+$bg-2: #B0D39C;
+$bg-3: #6DA559;
+$text-color: #033500;
+$highlight-color: #FF99C5;
+$lighter-highlight: rgba(255, 153, 197, .75);
+
+// desktop version
+// global styles
+@mixin global-base() {
+    html { background: $bg-1; }
+
+    body { 
+        display: grid; 
+        grid-template-rows: 100% auto auto;
+        grid-template-columns: 85% auto;
+        grid-template-areas: 
+            "head sidebar"
+            "main sidebar" 
+            "foot foot";
+        overflow-x: hidden;
+        margin: -5px;
+        padding: 5px;
+    }
+
+    h1, h2, h3, h4, p, ul, a { 
+        color: $text-color; 
+        font-family: "Josefin Slab", sans-serif;
+    }
+
+    p { line-height: 1.25; }
+}
+
+@mixin hover-transition() {
+    transition: all 0.2s linear;
+}
+
+@mixin highlight($left, $height, $color) {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: $left;
+        bottom: 0;
+        height: $height;
+        width: 100%;
+        background: $color;
+    }
+    
+}
+
+html {
+    @include global-base();
+}
+
+// main nav bar
+nav {
+    grid-area: sidebar;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: auto;
+    text-align: right;
+
+    li {
+        padding: 25px;
+        font-size: 26px;
+        font-weight: 500;
+        list-style: none;
+
+        a {
+            position: relative;
+            text-decoration: none;
+
+            img {
+
+                &:hover { 
+                    @include hover-transition();
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    // main nav bar hover effect
+    .hvr-underline {
+        @include highlight(10px, 50%, $lighter-highlight);
+
+        &:hover {
+            @include hover-transition();
+            font-style: italic;
+
+            &::before {
+                background: $highlight-color;
+                transform: scale(1.1);
+            }
+        }
+    }
+    
+}
+
+// title 
+h1 {
+    grid-area: head;
+    border: black solid;
+
+    .underline { @include highlight(20px, 45% , $bg-2); }
+}
+
+// project description
+.main {
+    grid-area: main;
+}
+
+// footer
+footer {
+    grid-area: foot;
+    position: relative;       
+    width: 100vw;
+    margin: 150px 0 0 0;
+    padding: 5px 0;
+    text-align: center;
+    background: $bg-2;
+
+    p { line-height: 0.25 !important;}
+}

@@ -15,27 +15,29 @@ $lighter-highlight: rgba(255, 153, 197, .75);
 
 // desktop version
 // global styles
-html { background: $bg-1; }
+@mixin global-base() {
+    html { background: $bg-1; }
 
-body { 
-    display: grid; 
-    grid-template-rows: 100vh auto auto;
-    grid-template-columns: 85% auto;
-    grid-template-areas: 
-        "head sidebar"
-        "main sidebar" 
-        "foot foot";
-    overflow-x: hidden;
-    margin: -5px;
-    padding: 5px;
+    body { 
+        display: grid; 
+        grid-template-rows: 100vh auto auto;
+        grid-template-columns: 85% auto;
+        grid-template-areas: 
+            "head sidebar"
+            "main sidebar" 
+            "foot foot";
+        overflow-x: hidden;
+        margin: -5px;
+        padding: 5px;
+    }
+
+    h1, h2, h3, h4, p, ul, a { 
+        color: $text-color; 
+        font-family: "Josefin Slab", sans-serif;
+    }
+
+    p { line-height: 1.25; }
 }
-
-h1, h2, h3, h4, p, ul, a { 
-    color: $text-color; 
-    font-family: "Josefin Slab", sans-serif;
-}
-
-p { line-height: 1.25; }
 
 @mixin hover-transition() {
     transition: all 0.2s linear;
@@ -57,6 +59,9 @@ p { line-height: 1.25; }
     
 }
 
+html {
+    @include global-base();
+}
 
 // landing page
 // hello + who i am
@@ -197,8 +202,8 @@ main {
         .section-container {
             margin: 0 30px 25px 30px;
             padding: 5px 0;
-            border-radius: 5px;
-            box-shadow: 0 3px 5px $text-color;
+            // border-radius: 5px;
+            // box-shadow: 0 3px 5px $text-color;
         }
     }
     
@@ -206,26 +211,23 @@ main {
      #work {
         margin-bottom: 50px;
 
-        @mixin project-box-border() {
-            border-radius: 5px;
-            box-shadow: -5px 5px 10px $text-color;
-        }
-
         .project {
-            @include project-box-border();
             display: flex;
             height: fit-content;
             width: 95%;
-            margin: 100px auto;
+            margin: 5% auto;
+            padding: 2.5% 0;
+            border-bottom: 1px solid $text-color;
+            // border-radius: 5px;
+            // box-shadow: 0 3px 5px $text-color;
 
             // add hover function back in when I have projects and can link to a page in the site where it goes into deeper case study -- hover should only change clickable things
             // when adding this back in don't foget the box-shadow hover effect above under @mixin project-box-border() :hover
-            &:hover {
-                @include hover-transition();
-                // transform: scale(1.02);
-                transform: translateX(15px) translateY(-10px);
-                box-shadow: -15px 10px 15px $text-color;
-            }
+            // &:hover {
+            //     @include hover-transition();
+            //     transform: translateX(15px) translateY(-10px);
+            //     box-shadow: -15px 10px 15px $text-color;
+            // }
 
             .project-images {
                 display: flex;
@@ -233,33 +235,22 @@ main {
                 justify-content: space-around;
                 align-items: center;
                 width: 65%;
+                margin: 2.5% 0;
 
                 .desktop {
-                    height: 256.5px;
-                    width: 450px;
-                    outline: black solid;
+                    width: 90%;
 
                     &:hover { 
                         @include hover-transition();
-                        transform: scale(1.05); 
-                    }
-                }
-
-                .mobile {
-                    height: 406px;
-                    width: 187.5px;
-                    outline: black solid;
-
-                    &:hover { 
-                        @include hover-transition();
-                        transform: scale(1.05); 
+                        // transform: scale(1.05); 
                     }
                 }
             }
 
             .project-description {
+                // border: black solid;
                 width: 35%;
-                padding: 50px 20px;
+                padding: 5% 0;
 
                 h4 {
                     text-align: center;
@@ -274,6 +265,17 @@ main {
                     margin-left: auto;
                     margin-right: auto;
                     font-size: 18px;
+                }
+
+                .more {
+                    font-style: italic;
+                    text-align: center;
+
+                    a {
+                        text-decoration: none;
+
+                        &:hover { text-decoration: underline; }
+                    }
                 }
             }
         }
